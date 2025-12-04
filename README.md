@@ -3,14 +3,22 @@
 
 思路很简单，就是让AI调用自动化程序，再让自动化程序反调用AI，变相实现AI“主动”来找你的效果。
 
+| 应用 | 是否需要 | 说明 |
+|------|------|------|
+| Operit AI | ✅ | 对接大模型API，用于对话交互，执行脚本 |
+| Autojs | ✅ | 用于设置自动化任务 |
+| Shizuku | ✅（有root用户不需要） | 提供权限 |
+| 其他 | 可选 | 拓展实现更多操作 |
+
 ## 详细教程步骤：
 ### 1.下载并配置Operit AI（或其他对接API且大模型有手机管理权限的应用）
-简单来说，Operit AI软件可以利用Shizuku、root等权限让AI执行shell、adb命令和操控终端等。这也是要实现主动式AI必须的条件。
+>简单来说，Operit AI软件可以利用Shizuku、root等权限让AI执行shell命令和操控终端等。这也是要实现主动式AI必须的条件。
 
 下载及配置Operit AI的基本方法请自行查看文档:
 https://github.com/AAswordman/Operit
 
 以上弄好后，在设置-提示词编辑-标签-新建标签，输入以下提示词：
+```
 主动提醒功能执行
 规则：当用户说明需要你提醒的时候，必须禁用daily life、sleep等工具包，优先考虑使用本主动提醒功能，不得违反本规则。
 
@@ -22,6 +30,7 @@ settings get secure enabled_accessibility_services | grep -q "org.autojs.autoxjs
 - 脚本路径固定不可修改
 - 等待时间由 auto_param.txt 文件内容决定（只可写入数字秒数）
 - 需提前授予 super_admin 包权限
+```
 
 
 ### 2.下载Autojs软件
@@ -29,5 +38,3 @@ settings get secure enabled_accessibility_services | grep -q "org.autojs.autoxjs
 
 ### 3.下载仓库里的脚本。
 待补充。
-
-
